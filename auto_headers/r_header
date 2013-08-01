@@ -23,9 +23,9 @@ CheckArgs <- function(opt) {
 # column 4: data type ("logical", "integer", "double", "complex", "character")
 # column 5 (optional): a description of the purpose of the flag
 spec = matrix(c(
-    'foo', 'f', 1, "integer",
-    'bar', 'b', 2, "logical"
-  ), byrow=T, ncol=4)
+    'foo', 'f', 1, "integer", "",
+    'bar', 'b', 2, "logical", ""
+  ), byrow=T, ncol=5)
 opt = getopt(spec)
 
 CheckArgs(opt)
