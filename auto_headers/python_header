@@ -1,17 +1,18 @@
 :insert
 #!/usr/bin/env python
 
+'''
+Desc
+
+'''
+
 # Hung-Hsuan Chen <hhchen@psu.edu>
 # Creation Date:
 # Last Modified:
 
-'''
-Sample usage:
-
-'''
+import sys
 
 import gflags
-import sys
 
 FLAGS = gflags.FLAGS
 gflags.DEFINE_string('arg1', '', '')
@@ -29,7 +30,7 @@ def check_args(argv):
 
   if FLAGS.arg1 == '':
     usage(argv[0])
-    raise Exception('flag arg1 cannot be empty')
+    raise Exception('flag --arg1 cannot be empty')
 
 def main(argv):
   check_args(argv)
