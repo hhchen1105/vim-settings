@@ -12,8 +12,8 @@ library('getopt')
 
 CheckArgs <- function(opt) {
   if ( is.null(opt$foo) ) {
-    cat(getopt(spec, usage=TRUE));
-    q(status=1);
+    cat(getopt(spec, usage=TRUE))
+    q(status=1)
   }
 }
 
@@ -30,5 +30,5 @@ opt = getopt(spec)
 
 CheckArgs(opt)
 
-q(status=0);
+q(status=0)
 .
