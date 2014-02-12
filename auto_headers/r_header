@@ -10,13 +10,6 @@
 
 library('getopt')
 
-CheckArgs <- function(opt) {
-  if ( is.null(opt$foo) ) {
-    cat(getopt(spec, usage=TRUE))
-    q(status=1)
-  }
-}
-
 # column 1: long name
 # column 2: short name
 # column 3: mask (0: no arg; 1: required; 2: optional)
@@ -28,7 +21,19 @@ spec = matrix(c(
   ), byrow=T, ncol=5)
 opt = getopt(spec)
 
-CheckArgs(opt)
+CheckArgs <- function(opt) {
+  if ( is.null(opt$foo) ) {
+    cat(getopt(spec, usage=TRUE))
+    q(status=1)
+  }
+}
 
-q(status=0)
+main <- function(opt) {
+  CheckArgs(opt)
+
+  q(status=0)
+}
+
+main(opt)
+
 .
