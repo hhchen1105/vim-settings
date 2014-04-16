@@ -54,7 +54,6 @@ if &background == "dark"
 else
   highlight SpecialKey ctermbg=Yellow guibg=Yellow
 end
-set t_Co=256  " turn on 256 colors
 colorscheme wombat256 " use this color scheme
 
 "[ Auto generate header contents for some file types ]
