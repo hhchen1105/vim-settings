@@ -18,29 +18,33 @@ FLAGS = gflags.FLAGS
 gflags.DEFINE_string('arg1', '', '')
 
 def usage(cmd):
-  print ('Usage:', cmd,
-        '--arg1="VAL"')
-  return
+    print ('Usage:', cmd,
+            '--arg1="VAL"')
+    return
+
 
 def check_args(argv):
-  try:
-    argv = FLAGS(argv)
-  except gflags.FlagsError:
-    print FLAGS
+    try:
+        argv = FLAGS(argv)
+    except gflags.FlagsError:
+        print FLAGS
 
-  if FLAGS.arg1 == '':
-    usage(argv[0])
-    raise Exception('flag --arg1 cannot be empty')
+    if FLAGS.arg1 == '':
+        usage(argv[0])
+        raise Exception('flag --arg1 cannot be empty')
+
 
 def main(argv):
-  check_args(argv)
+    check_args(argv)
+
 
 if __name__ == "__main__":
-  main(sys.argv)
+    main(sys.argv)
+
 
 import nose.tools as nt
 
 class TestAll():
-  def test_foo(self):
-    nt.assert_equal(1, 1)
+    def test_foo(self):
+        nt.assert_equal(1, 1)
 .
