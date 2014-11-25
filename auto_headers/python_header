@@ -19,8 +19,7 @@ FLAGS = gflags.FLAGS
 gflags.DEFINE_string('arg1', '', '')
 
 def usage(cmd):
-    print ('Usage:', cmd,
-            '--arg1="VAL"')
+    print ('Usage: %s --arg1="VAL"' %( cmd))
     return
 
 
