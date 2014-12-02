@@ -19,7 +19,7 @@ FLAGS = gflags.FLAGS
 gflags.DEFINE_string('arg1', '', '')
 
 def usage(cmd):
-    print ('Usage: %s --arg1="VAL"' %( cmd))
+    print('Usage: %s --arg1="VAL"' % (cmd))
     return
 
 
@@ -27,7 +27,7 @@ def check_args(argv):
     try:
         argv = FLAGS(argv)
     except gflags.FlagsError:
-        print FLAGS
+        print(FLAGS)
 
     if FLAGS.arg1 == '':
         usage(argv[0])
