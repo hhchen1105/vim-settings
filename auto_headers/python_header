@@ -11,6 +11,7 @@ Desc
 # Creation Date:
 # Last Modified:
 
+import logging
 import sys
 
 import gflags
@@ -18,8 +19,12 @@ import gflags
 FLAGS = gflags.FLAGS
 gflags.DEFINE_string('arg1', '', '')
 
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+
 def usage(cmd):
-    print('Usage: %s --arg1="VAL"' % (cmd))
+    logger.error('Usage: %s --arg1="VAL"' % (cmd))
     return
 
 
@@ -27,11 +32,12 @@ def check_args(argv):
     try:
         argv = FLAGS(argv)
     except gflags.FlagsError:
-        print(FLAGS)
+        logger.error(FLAGS)
 
     if FLAGS.arg1 == '':
         usage(argv[0])
-        raise Exception('flag --arg1 cannot be empty')
+        logger.error('flag --arg1 cannot be empty')
+        raise
 
 
 def main(argv):
