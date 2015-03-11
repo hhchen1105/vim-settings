@@ -32,11 +32,11 @@ def check_args(argv):
     try:
         argv = FLAGS(argv)
     except gflags.FlagsError:
-        logger.warn(FLAGS)
+        logger.error(FLAGS, exe_info=True)
 
     if FLAGS.arg1 == '':
         usage(argv[0])
-        logger.warn('flag --arg1 cannot be empty')
+        logger.error('flag --arg1 cannot be empty', exe_info=True)
         raise
 
 
