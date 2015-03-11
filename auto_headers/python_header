@@ -24,7 +24,7 @@ logger = logging.getLogger(__name__)
 
 
 def usage(cmd):
-    logger.error('Usage: %s --arg1="VAL"' % (cmd))
+    logger.warn('Usage: %s --arg1="VAL"' % (cmd))
     return
 
 
@@ -32,11 +32,11 @@ def check_args(argv):
     try:
         argv = FLAGS(argv)
     except gflags.FlagsError:
-        logger.error(FLAGS)
+        logger.warn(FLAGS)
 
     if FLAGS.arg1 == '':
         usage(argv[0])
-        logger.error('flag --arg1 cannot be empty')
+        logger.warn('flag --arg1 cannot be empty')
         raise
 
 
